@@ -1,291 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diana Zelenina – HR Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diana Zelenina · HR Portfolio</title>
 
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: "Inter", Arial, sans-serif;
-            color: #3f3a3a;
-            background: radial-gradient(circle at top left, #ffe8ef 0, #f3e7f1 32%, #f5f0ff 68%, #f7f8fc 100%);
-        }
+  <style>
+    :root {
+      --bg: #f5f3ff;
+      --bg-soft: #faf5ff;
+      --card: #ffffff;
+      --stroke: rgba(15, 23, 42, 0.06);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
+      --accent: #ec4899;
+      --accent-soft: rgba(236, 72, 153, 0.1);
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+    }
 
-        /* ===== HEADER ===== */
-        .top-bar {
-            max-width: 1120px;
-            margin: 18px auto 0;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+        "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, #fce7f3 0, #e5e7ff 40%, #f9fafb 100%);
+    }
 
-        .brand-logo {
-            width: 30px;
-            height: 30px;
-            border-radius: 999px;
-            background: radial-gradient(circle at 30% 30%, #ffffff 0, #f7c9d8 45%, #d99ec7 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .brand-text {
-            font-size: 14px;
-            opacity: 0.8;
-            letter-spacing: 0.08em;
-        }
+    /* ===== SHELL ===== */
 
-        /* NAVIGATION */
-        .nav-links {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+    .shell {
+      max-width: 1100px;
+      margin: 16px auto 40px;
+      padding: 0 20px;
+    }
 
-        .nav-item {
-            padding: 6px 14px;
-            font-size: 14px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.55);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.9);
-            color: #5f4a52;
-            font-weight: 500;
-            text-decoration: none;
-            transition: 0.2s ease;
-        }
+    /* ===== TOP BAR ===== */
 
-        .nav-item:hover {
-            background: rgba(255,255,255,0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-        }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
 
-        .top-pill {
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.78);
-            font-size: 12px;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        /* ===== LAYOUT ===== */
-        .layout {
-            max-width: 1120px;
-            margin: 18px auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 32px;
-        }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: conic-gradient(from 210deg, #ec4899, #6366f1, #f97316, #ec4899);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        /* SIDEBAR */
-        .sidebar {
-            flex: 0 0 300px;
-            position: sticky;
-            top: 20px;
-        }
+    .brand-logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-        .sidebar-card {
-            background: rgba(255,255,255,0.92);
-            padding: 24px 20px;
-            border-radius: 22px;
-            text-align: center;
-            box-shadow: 0 22px 50px rgba(137,113,132,0.18);
-        }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
 
-        .photo {
-            width: 160px;
-            height: 160px;
-            border-radius: 999px;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-            margin-bottom: 12px;
-        }
+    .brand-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-        /* HR ICONS */
-        .hr-icons {
-            margin-top: 16px;
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
 
-        .hr-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 99px;
-            font-size: 17px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.25);
-            border: 1px solid rgba(255,255,255,0.5);
-        }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .hr-icon-heart { animation: heartPulse 2.2s infinite; }
-        .hr-icon-bubble { animation: bubbleFloat 3s infinite; }
-        .hr-icon-leaf  { animation: leafGrow 2.8s infinite; }
-        .hr-icon-cv    { animation: cvTilt 3.5s infinite; }
+    .nav-link {
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(248, 250, 252, 0.7);
+      backdrop-filter: blur(10px);
+      transition: 0.18s ease;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
-        @keyframes heartPulse {
-            0%,100% { transform: scale(1); }
-            50% { transform: scale(1.12); }
-        }
+    .nav-link:hover {
+      background: #ffffff;
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
 
-        @keyframes bubbleFloat {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
+    .nav-link.active {
+      border-color: transparent;
+      background: var(--accent);
+      color: #fff;
+    }
 
-        @keyframes leafGrow {
-            0%,100% { transform: scale(1); }
-            50% { transform: scale(1.12); }
-        }
+    .pill-status {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.18);
+      color: #15803d;
+      white-space: nowrap;
+    }
 
-        @keyframes cvTilt {
-            0%,100% { transform: rotate(0); }
-            50% { transform: rotate(3deg); }
-        }
+    /* ===== LAYOUT ===== */
 
-        /* CONTENT BLOCKS */
-        .content { flex: 1; }
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
 
-        .section {
-            background: rgba(255,255,255,0.92);
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 18px;
-            box-shadow: 0 22px 50px rgba(137,113,132,0.14);
-        }
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .top-bar {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+    }
 
-        .section h2 {
-            color: #b4687d;
-            margin-top: 0;
-            font-size: 20px;
-        }
+    /* ===== SIDEBAR CARD ===== */
 
-        .tag {
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: #f6e6e4;
-            font-size: 13px;
-        }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow-soft);
+    }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-        }
+    .profile-card {
+      padding: 24px 22px 20px;
+      text-align: center;
+    }
 
-        /* BUTTON */
-        .btn {
-            padding: 10px 20px;
-            border-radius: 999px;
-            background: #d8a7a1;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
-        }
-    </style>
+    .profile-photo-wrap {
+      width: 150px;
+      height: 150px;
+      margin: 4px auto 12px;
+      border-radius: 999px;
+      padding: 3px;
+      background: conic-gradient(from 200deg, #ec4899, #6366f1, #f97316, #ec4899);
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .profile-meta {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .icon-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .icon-pill {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      background: #f9fafb;
+    }
+
+    .icon-pill:nth-child(1) { animation: float1 3s infinite ease-in-out; }
+    .icon-pill:nth-child(2) { animation: float2 3.4s infinite ease-in-out; }
+    .icon-pill:nth-child(3) { animation: float3 3.1s infinite ease-in-out; }
+    .icon-pill:nth-child(4) { animation: float4 3.6s infinite ease-in-out; }
+
+    @keyframes float1 {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    @keyframes float2 {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
+    }
+    @keyframes float3 {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes float4 {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    .sidebar-links {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(226, 232, 240, 0.9);
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .sidebar-links a {
+      color: #2563eb;
+    }
+
+    .sidebar-links-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+
+    .content-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 18px 20px 18px;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .section-body {
+      font-size: 14px;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .skill-pill {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #374151;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ec4899, #6366f1);
+      color: #fff;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      font-size: 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #f9fafb;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+  </style>
 </head>
-
 <body>
+  <div class="shell">
 
-    <!-- HEADER -->
+    <!-- TOP BAR -->
     <header class="top-bar">
-        <div class="brand">
-            <div class="brand-logo">DZ</div>
-            <div class="brand-text">HR Portfolio · 2025</div>
+      <div class="brand">
+        <div class="brand-logo">
+          <div class="brand-logo-inner">DZ</div>
         </div>
+        <div class="brand-text">
+          <div class="brand-title">HR Portfolio</div>
+          <div class="brand-sub">Diana Zelenina · 2025</div>
+        </div>
+      </div>
 
-        <nav class="nav-links">
-            <a href="hobby.html" class="nav-item">My Hobby</a>
-            <a href="blog.html" class="nav-item">Blog</a>
-        </nav>
-
-        <div class="top-pill">Open to HR Internships</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="hobby.html" class="nav-link">My Hobby</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <div class="pill-status">Open to HR internships</div>
+      </nav>
     </header>
 
-
     <!-- MAIN LAYOUT -->
-    <div class="layout">
+    <main class="layout">
+      <!-- LEFT: PROFILE CARD -->
+      <aside class="card profile-card">
+        <div class="profile-photo-wrap">
+          <img src="фото для сайту.jpg" alt="Diana Zelenina" class="profile-photo" />
+        </div>
+        <div class="profile-name">Diana Zelenina</div>
+        <div class="profile-role">HR Trainee · Psychology Student</div>
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <div class="sidebar-card">
-                <img src="фото для сайту.jpg" class="photo" />
+        <div class="profile-meta">
+          Kyiv, Ukraine · Early-career HR with strong interest in sourcing,
+          candidate experience and modern workplace culture.
+        </div>
 
-                <h1>Diana Zelenina</h1>
-                <p>HR Trainee · Psychology Student</p>
+        <div class="icon-row">
+          <div class="icon-pill">❤</div>
+          <div class="icon-pill">💬</div>
+          <div class="icon-pill">🌱</div>
+          <div class="icon-pill">📄</div>
+        </div>
 
-                <div class="hr-icons">
-                    <div class="hr-icon hr-icon-heart">❤</div>
-                    <div class="hr-icon hr-icon-bubble">💬</div>
-                    <div class="hr-icon hr-icon-leaf">🌱</div>
-                    <div class="hr-icon hr-icon-cv">📄</div>
-                </div>
+        <div class="sidebar-links">
+          <div class="sidebar-links-row">
+            <span>Email: <a href="mailto:dianazelenin@gmail.com">dianazelenin@gmail.com</a></span>
+            <span>LinkedIn: <a href="https://www.linkedin.com" target="_blank">profile</a></span>
+            <span>Portfolio site: this page</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: CONTENT -->
+      <section class="content-column">
+
+        <article class="section-card">
+          <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <span class="section-tag">Snapshot</span>
+          </div>
+          <div class="section-body">
+            I’m building my HR foundation through online programs, self-study and
+            practical projects. With a background in psychology, I focus on how
+            people think, decide and work together – and how HR can support that
+            in a healthy way. I’m especially interested in junior-level sourcing,
+            ATS basics, candidate communication and thoughtful onboarding.
+          </div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-header">
+            <h2 class="section-title">Why HR</h2>
+            <span class="section-tag">Motivation</span>
+          </div>
+          <div class="section-body">
+            I see HR not just as “hiring people”, but as building fair, safe and
+            productive environments where people can grow. My psychology studies
+            help me understand emotions, motivation and behavior, which I want
+            to translate into better communication with candidates and teams.
+          </div>
+        </article>
+
+        <article class="section-card">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <span class="section-tag">Early-career</span>
+          </div>
+          <div class="section-body">
+            <div class="section-subtitle">HR & communication:</div>
+            <div class="pill-row">
+              <span class="skill-pill">Candidate sourcing basics</span>
+              <span class="skill-pill">Boolean search (junior)</span>
+              <span class="skill-pill">CV & profile screening</span>
+              <span class="skill-pill">Writing simple job descriptions</span>
+              <span class="skill-pill">Empathy & active listening</span>
             </div>
-        </aside>
 
+            <div class="section-subtitle" style="margin-top: 10px;">Tools:</div>
+            <div class="pill-row">
+              <span class="skill-pill">LinkedIn (basic)</span>
+              <span class="skill-pill">Google Sheets (basic)</span>
+              <span class="skill-pill">Notion (basic)</span>
+              <span class="skill-pill">Figma (basic)</span>
+            </div>
+          </div>
+        </article>
 
-        <!-- CONTENT -->
-        <main class="content">
+        <article class="section-card">
+          <div class="section-header">
+            <h2 class="section-title">Projects</h2>
+            <span class="section-tag">Practice</span>
+          </div>
+          <div class="section-body">
+            <div class="section-subtitle">Candidate sourcing week (simulation)</div>
+            I practiced the full beginner workflow of sourcing candidates for entry-level roles:
+            breaking down job descriptions, building simple Boolean strings and selecting a shortlist
+            of profiles with clear reasoning.
+            <br />
+            <button class="btn-secondary" onclick="window.location.href='blog.html'">
+              Open my project notes
+            </button>
+          </div>
+        </article>
 
-            <section class="section">
-                <h2>About Me</h2>
-                <p>I am an aspiring HR specialist… (твій текст залишив повністю)</p>
-            </section>
+        <article class="section-card">
+          <div class="section-header">
+            <h2 class="section-title">My HR Learning Logbook</h2>
+            <span class="section-tag">Ongoing</span>
+          </div>
+          <div class="section-body">
+            I’m tracking what I learn each week about HR, psychology and communication – from
+            courses, books and real cases. You can see some of these reflections in my Blog section.
+          </div>
+        </article>
 
-            <section class="section">
-                <h2>Why HR</h2>
-                <p>(твій текст)</p>
-            </section>
+        <article class="section-card">
+          <div class="section-header">
+            <h2 class="section-title">Contact & CV</h2>
+            <span class="section-tag">Next step</span>
+          </div>
+          <div class="section-body">
+            If my profile looks relevant, I’d be happy to complete a test task, join a short call or
+            start with an internship / trainee position.
+            <br /><br />
+            <a href="Resume.pdf" target="_blank" rel="noopener" class="btn-primary">
+              Download CV (PDF)
+            </a>
+          </div>
+        </article>
 
-            <section class="section">
-                <h2>Skills</h2>
-                <div class="tags">
-                    <div class="tag">Sourcing</div>
-                    <div class="tag">Boolean Search</div>
-                    <div class="tag">Candidate Experience</div>
-                    <div class="tag">Empathy</div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Projects</h2>
-                <p>Candidate sourcing week…</p>
-                <a class="btn" href="#">View Projects</a>
-            </section>
-
-            <section class="section">
-                <h2>My HR Learning Logbook</h2>
-                <p>Week 1…</p>
-            </section>
-
-            <section class="section">
-                <h2>Contact</h2>
-                <p>Email: dianazelenina@gmail.com</p>
-
-                <a href="Resume.pdf" class="btn">Download CV</a>
-            </section>
-
-        </main>
-    </div>
-
+      </section>
+    </main>
+  </div>
 </body>
 </html>
+
