@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Diana Zelenina – HR Portfolio</title>
+    <meta name="description" content="HR trainee portfolio of Diana Zelenina – psychology student, sourcing beginner, and candidate experience enthusiast.">
     <style>
         body {
             margin: 0;
@@ -147,11 +148,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        .section:nth-child(2) { animation-delay: 0.1s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.3s; }
-        .section:nth-child(5) { animation-delay: 0.4s; }
-
         .section h2 {
             margin-top: 0;
             font-size: 22px;
@@ -180,24 +176,32 @@
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
         }
 
         /* BUTTON */
         .btn {
             display: inline-block;
             padding: 11px 20px;
-            background-color: #d8a7a1;
+            background: linear-gradient(135deg, #d8a7a1, #c98f88);
             color: white;
             font-weight: 600;
             border-radius: 10px;
             text-decoration: none;
             margin-top: 10px;
             font-size: 14px;
-            transition: 0.2s ease;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
         }
 
         .btn:hover {
-            background-color: #c98f88;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+            filter: brightness(1.03);
         }
 
         footer {
@@ -257,7 +261,7 @@
     <!-- LEFT COLUMN: PHOTO + SHORT INFO -->
     <aside class="sidebar">
         <div class="sidebar-card">
-            <!-- Якщо нове фото має іншу назву – заміни тут -->
+            <!-- Якщо фото має іншу назву – заміни тут -->
             <img src="фото для сайту.jpg" alt="Diana photo" class="photo" />
             <h1>Diana Zelenina</h1>
             <div class="sidebar-role">HR Trainee · Psychology Student</div>
@@ -298,6 +302,20 @@
             </p>
         </section>
 
+        <!-- WHY HR -->
+        <section class="section">
+            <h2>Why I Want to Work in HR</h2>
+            <p>
+                I like the idea that HR is not only about processes, but also about people’s real stories. For me, HR is where
+                psychology, communication, and business meet. I enjoy listening to people, understanding what they are looking for,
+                and trying to see how they could fit into a team or company.
+            </p>
+            <p>
+                I want to grow in HR because I see it as a place where I can combine empathy with structure: helping candidates feel
+                respected during the process, while still thinking logically about requirements, skills, and expectations of the company.
+            </p>
+        </section>
+
         <!-- SKILLS -->
         <section class="section">
             <h2>Skills</h2>
@@ -315,6 +333,16 @@
                 <div class="tag">Team Dynamics</div>
                 <div class="tag">HR Writing</div>
             </div>
+        </section>
+
+        <!-- CURRENTLY LEARNING -->
+        <section class="section">
+            <h2>What I’m Currently Learning</h2>
+            <p>
+                Right now I am focused on improving my sourcing logic, understanding how to structure HR communication, and connecting
+                what I study in Psychology with real hiring situations. I am experimenting with different Boolean search approaches,
+                practicing how to read job descriptions more critically, and writing my own HR message templates.
+            </p>
         </section>
 
         <!-- COURSES -->
@@ -335,7 +363,7 @@
             </p>
             <p>
                 <strong>Candidate Experience & Communication Case Study:</strong>
-                Analyzed typical communication mistakes in recruitment, created more human and clear HR message templates,
+                Analysed typical communication mistakes in recruitment, created more human and clear HR message templates,
                 and explored how to make the candidate journey more transparent and respectful.
             </p>
 
@@ -362,6 +390,4 @@
 
 </body>
 </html>
-
-
 
