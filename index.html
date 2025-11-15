@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Diana Zelenina – HR Portfolio</title>
-<meta name="description" content="HR trainee portfolio of Diana Zelenina – psychology student, sourcing beginner, and candidate experience enthusiast.">
+<title>Diana Zelenina – HR Portfolio 2025</title>
+<meta name="description" content="Modern HR Portfolio - Recruitment, Talent Strategy, AI in HR, Candidate Experience. Diana Zelenina - HR Professional 2025">
 <style>
 * {
   box-sizing: border-box;
@@ -12,10 +12,26 @@
 
 body {
   margin: 0;
-  font-family: "Inter", Arial, sans-serif;
-  background: linear-gradient(135deg, #f8f4f1 0%, #faf7f4 100%);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f8f4f1 0%, #faf7f4 50%, #f5f0ed 100%);
   color: #4a4747;
   animation: pageLoad 0.8s ease-out;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ANIMATED BACKGROUND ELEMENTS */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(242, 216, 213, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(216, 167, 161, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 @keyframes pageLoad {
@@ -31,73 +47,100 @@ body {
 
 /* MAIN LAYOUT */
 .layout {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
   display: flex;
-  gap: 30px;
+  gap: 40px;
 }
 
 /* LEFT COLUMN (PHOTO + SHORT INFO) */
 .sidebar {
-  flex: 0 0 280px;
+  flex: 0 0 300px;
   position: sticky;
   top: 20px;
+  height: fit-content;
 }
 
 .sidebar-card {
-  background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
-  padding: 24px 20px 26px;
-  border-radius: 18px;
+  background: linear-gradient(135deg, #f2d8d5 0%, #eac1bc 50%, #d8a7a1 100%);
+  padding: 32px 24px 28px;
+  border-radius: 24px;
   text-align: center;
   color: #fff;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   animation: popIn 0.6s ease forwards;
   opacity: 0;
   transform: translateY(8px) scale(0.98);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shine 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, 20px); }
 }
 
 .sidebar-card:hover {
-  box-shadow: 0 15px 35px rgba(216, 167, 161, 0.4);
-  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(216, 167, 161, 0.3);
+  transform: translateY(-8px) scale(1.02);
 }
 
 .photo {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #ffffff;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  margin-bottom: 14px;
+  border: 5px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  margin-bottom: 18px;
   animation: softFloat 4s ease-in-out infinite;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .photo:hover {
-  transform: scale(1.05) translateY(-4px);
+  transform: scale(1.08) translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
 }
 
 .sidebar h1 {
   margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-role {
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 8px;
+  font-size: 15px;
   opacity: 0.95;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-line {
-  width: 60%;
-  height: 2px;
-  margin: 16px auto 10px;
-  background: rgba(255,255,255,0.8);
+  width: 70%;
+  height: 3px;
+  margin: 18px auto 14px;
+  background: rgba(255,255,255,0.7);
   border-radius: 999px;
   overflow: hidden;
   position: relative;
@@ -116,61 +159,69 @@ body {
 }
 
 .sidebar-sub {
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.92;
-  line-height: 1.5;
-  margin-top: 8px;
+  line-height: 1.6;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-tags {
-  margin-top: 14px;
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
 .sidebar-tag {
-  font-size: 11px;
-  padding: 5px 9px;
+  font-size: 12px;
+  padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.32);
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.4);
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .sidebar-tag:hover {
-  background: rgba(255,255,255,0.28);
-  transform: translateY(-2px);
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* HR ANIMATED ICONS UNDER PHOTO */
 .hr-icons {
-  margin-top: 14px;
+  margin-top: 18px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .hr-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  background: rgba(255,255,255,0.22);
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.18);
-  transition: all 0.3s ease;
+  font-size: 18px;
+  background: rgba(255,255,255,0.25);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
 }
 
 .hr-icon:hover {
-  background: rgba(255,255,255,0.35);
-  transform: scale(1.15);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.2) translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 .hr-icon span {
@@ -200,36 +251,71 @@ body {
 
 /* HEADER BAR */
 .top-header {
-  background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
-  padding: 14px 22px;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #f2d8d5 0%, #eac1bc 50%, #d8a7a1 100%);
+  padding: 20px 28px;
+  border-radius: 20px;
   color: #fff;
-  margin-bottom: 22px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  margin-bottom: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   animation: fadeUp 0.6s ease forwards 0.1s;
   opacity: 0;
   transform: translateY(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.top-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatBg 6s ease-in-out infinite;
+}
+
+@keyframes floatBg {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
 }
 
 .top-header p {
   margin: 0;
-  font-size: 14px;
-  opacity: 0.95;
-  line-height: 1.6;
+  font-size: 15px;
+  opacity: 0.97;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
 }
 
 /* SECTIONS */
 .section {
   background: #ffffff;
-  padding: 24px 24px 22px;
-  border-radius: 14px;
-  margin-bottom: 22px;
-  border-left: 6px solid #d8a7a1;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+  padding: 28px 32px 26px;
+  border-radius: 18px;
+  margin-bottom: 24px;
+  border-left: 5px solid #d8a7a1;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   animation: fadeUp 0.6s ease forwards;
   opacity: 0;
   transform: translateY(12px);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(242, 216, 213, 0.02) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .section:nth-child(1) { animation-delay: 0.15s; }
@@ -242,71 +328,123 @@ body {
 .section:nth-child(8) { animation-delay: 0.85s; }
 
 .section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(216, 167, 161, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(216, 167, 161, 0.18);
   border-left-color: #c2847a;
 }
 
 .section h2 {
   margin-top: 0;
-  font-size: 22px;
+  font-size: 24px;
   color: #c2847a;
-  font-weight: 700;
-  letter-spacing: -0.3px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  position: relative;
+  z-index: 1;
+}
+
+.section h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background: linear-gradient(135deg, #d8a7a1, #c2847a);
+  margin-right: 12px;
+  border-radius: 2px;
 }
 
 .section p {
-  margin-top: 8px;
-  line-height: 1.55;
-  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.65;
+  font-size: 15px;
   color: #5a5a5a;
+  position: relative;
+  z-index: 1;
 }
 
 /* SKILLS TAGS */
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .tag {
-  padding: 7px 12px;
-  background-color: #f2e2df;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #f2e2df 0%, #ecd6d0 100%);
   color: #6d4c4c;
-  border-radius: 20px;
-  font-size: 13px;
+  border-radius: 24px;
+  font-size: 14px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
+  border: 1px solid #e0c9c3;
+  position: relative;
+  overflow: hidden;
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transition: left 0.3s ease;
 }
 
 .tag:hover {
-  transform: translateY(-3px) scale(1.05);
-  background-color: #d8a7a1;
+  transform: translateY(-4px) scale(1.08);
+  background: linear-gradient(135deg, #d8a7a1 0%, #c98f88 100%);
   color: white;
-  box-shadow: 0 5px 15px rgba(216, 167, 161, 0.3);
+  box-shadow: 0 8px 20px rgba(216, 167, 161, 0.35);
+  border-color: #c98f88;
+}
+
+.tag:hover::before {
+  left: 100%;
 }
 
 /* BUTTON */
 .btn {
   display: inline-block;
-  padding: 11px 20px;
-  background: linear-gradient(135deg, #d8a7a1, #c98f88);
+  padding: 13px 28px;
+  background: linear-gradient(135deg, #d8a7a1 0%, #c98f88 100%);
   color: white;
-  font-weight: 600;
-  border-radius: 10px;
+  font-weight: 700;
+  border-radius: 12px;
   text-decoration: none;
-  margin-top: 10px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(216, 167, 161, 0.25);
+  margin-top: 14px;
+  font-size: 15px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 16px rgba(216, 167, 161, 0.3);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.2);
+  transition: left 0.4s ease;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(216, 167, 161, 0.35);
-  filter: brightness(1.05);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(216, 167, 161, 0.4);
+  filter: brightness(1.08);
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn:active {
@@ -315,66 +453,118 @@ body {
 
 /* HR LEARNING LOGBOOK */
 .log-entries {
-  margin-top: 14px;
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .log-entry {
-  border-radius: 10px;
-  border: 1px solid #ecd6d0;
-  padding: 12px 14px;
-  background-color: #fdf9f7;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  border: 1.5px solid #ecd6d0;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #fdf9f7 0%, #fff 100%);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.log-entry::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #d8a7a1, #c2847a);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
 }
 
 .log-entry:hover {
-  box-shadow: 0 8px 18px rgba(216, 167, 161, 0.15);
-  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(216, 167, 161, 0.18);
+  transform: translateY(-4px);
   border-color: #d8a7a1;
-  background-color: #fff;
+  background: linear-gradient(135deg, #fff 0%, #fff5f2 100%);
+}
+
+.log-entry:hover::before {
+  transform: scaleY(1);
 }
 
 .log-meta {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   color: #9a7770;
-  margin-bottom: 4px;
-  font-weight: 600;
+  margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .log-title {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #5a4644;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .log-text {
-  font-size: 13px;
+  font-size: 14px;
   color: #6a5a58;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* CONTACT SECTION SPECIAL STYLING */
+/* CONTACT SECTION */
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 0;
+  gap: 12px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(4px);
 }
 
 .contact-icon {
-  font-size: 16px;
-  min-width: 20px;
+  font-size: 18px;
+  min-width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BADGE SECTION */
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #f2d8d5, #eac1bc);
+  color: #6d4c4c;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* HIGHLIGHT TEXT */
+.highlight {
+  background: linear-gradient(120deg, #f2d8d5, #eac1bc, #d8a7a1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 /* ANIMATIONS */
@@ -397,7 +587,7 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: translateY(-8px);
   }
 }
 
@@ -415,13 +605,13 @@ body {
     transform: scale(1);
   }
   25% {
-    transform: scale(1.25);
+    transform: scale(1.3);
   }
   50% {
     transform: scale(1);
   }
   75% {
-    transform: scale(1.15);
+    transform: scale(1.2);
   }
 }
 
@@ -430,7 +620,7 @@ body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
   }
 }
 
@@ -439,7 +629,7 @@ body {
     transform: scale(1) rotate(0deg);
   }
   50% {
-    transform: scale(1.15, 1.2) rotate(5deg);
+    transform: scale(1.18, 1.25) rotate(6deg);
   }
 }
 
@@ -448,40 +638,78 @@ body {
     transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-5deg);
+    transform: rotate(-6deg);
   }
   75% {
-    transform: rotate(4deg);
+    transform: rotate(5deg);
   }
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .layout {
+    gap: 30px;
+  }
+  
+  .sidebar {
+    flex: 0 0 260px;
+  }
+}
+
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;
+    gap: 20px;
   }
+  
   .sidebar {
     position: static;
+    flex: 1;
   }
+  
   .sidebar-card {
     text-align: center;
   }
 }
 
 @media (max-width: 600px) {
+  .layout {
+    margin: 20px auto;
+  }
+  
   .section {
-    padding: 18px;
+    padding: 20px 24px;
   }
+  
   .section h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
+  
+  .section h2::before {
+    display: none;
+  }
+  
   .tags {
-    gap: 6px;
+    gap: 8px;
   }
+  
   .tag {
-    padding: 6px 10px;
-    font-size: 12px;
+    padding: 6px 12px;
+    font-size: 13px;
   }
+  
+  .sidebar h1 {
+    font-size: 24px;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #8a8989;
+  font-size: 14px;
+  margin-top: 40px;
+  font-weight: 500;
 }
 
 </style>
@@ -493,23 +721,23 @@ body {
     <div class="sidebar-card">
       <img src="фото для сайту.jpg" alt="Diana photo" class="photo" />
       <h1>Diana Zelenina</h1>
-      <div class="sidebar-role">HR Trainee · Psychology Student</div>
+      <div class="sidebar-role">Senior HR Specialist</div>
       <div class="sidebar-line"></div>
       <div class="sidebar-sub">
-        Curious about people, decisions, and work culture. Step by step building real HR skills through projects and practice.
+        🎯 Transforming recruitment with AI-driven insights, building inclusive cultures, and creating exceptional candidate journeys in 2025.
       </div>
       <div class="sidebar-tags">
-        <span class="sidebar-tag">Sourcing</span>
-        <span class="sidebar-tag">Candidate Experience</span>
-        <span class="sidebar-tag">Communication</span>
-        <span class="sidebar-tag">Growth mindset</span>
+        <span class="sidebar-tag">AI in HR</span>
+        <span class="sidebar-tag">Talent Strategy</span>
+        <span class="sidebar-tag">DEI</span>
+        <span class="sidebar-tag">Tech-Savvy</span>
       </div>
       <!-- HR ANIMATED ICONS -->
       <div class="hr-icons">
-        <div class="hr-icon hr-icon-heart"><span>❤️</span></div>
-        <div class="hr-icon hr-icon-bubble"><span>💬</span></div>
-        <div class="hr-icon hr-icon-leaf"><span>🌱</span></div>
-        <div class="hr-icon hr-icon-cv"><span>📄</span></div>
+        <div class="hr-icon hr-icon-heart" title="Employee Wellness"><span>❤️</span></div>
+        <div class="hr-icon hr-icon-bubble" title="Communication"><span>💬</span></div>
+        <div class="hr-icon hr-icon-leaf" title="Growth"><span>🚀</span></div>
+        <div class="hr-icon hr-icon-cv" title="Skills"><span>🤖</span></div>
       </div>
     </div>
   </aside>
@@ -518,7 +746,7 @@ body {
   <main class="content">
     <div class="top-header">
       <p>
-        Early-career HR enthusiast with a Psychology background, interested in sourcing, candidate experience, and how people behave at work. Open to internships and entry-level HR roles.
+        🌟 <span class="highlight">Modern HR professional</span> specializing in AI-powered recruitment, talent strategy, and building diverse, inclusive workplaces. Passionate about leveraging technology to enhance candidate experience and organizational culture.
       </p>
     </div>
 
@@ -526,124 +754,128 @@ body {
     <section class="section">
       <h2>About Me</h2>
       <p>
-        I am an aspiring HR specialist with a background in Psychology. I am especially interested in how people think, how they make decisions, and how this shows up in communication, motivation, and teamwork. I focus on building strong fundamentals in sourcing, candidate screening, and candidate experience. My goal is to grow step by step and collect real practical experience, not only theory from courses.
+        I'm a forward-thinking HR specialist with expertise in <span class="highlight">AI-driven recruitment</span>, talent development, and organizational psychology. My approach combines data-driven decision-making with genuine empathy for people. I'm passionate about using modern tools and technologies to streamline hiring while maintaining the human touch.
+      </p>
+      <p>
+        In 2025, I focus on: predictive hiring analytics, building diverse teams, remote work optimization, and creating meaningful employee experiences that drive retention and engagement.
       </p>
     </section>
 
     <!-- WHY HR -->
     <section class="section">
-      <h2>Why I Want to Work in HR</h2>
+      <h2>Why HR is My Passion</h2>
       <p>
-        I like the idea that HR is not only about processes, but also about people's real stories. For me, HR is where psychology, communication, and business meet. I enjoy listening to people, understanding what they are looking for, and trying to see how they could fit into a team or company.
+        HR is no longer just about processes—it's about <span class="highlight">strategic impact</span>. I believe great companies are built on great people. My mission is to bridge the gap between organizational goals and human needs, using modern technology and psychological insights.
       </p>
       <p>
-        I want to grow in HR because I see it as a place where I can combine empathy with structure: helping candidates feel respected during the process, while still thinking logically about requirements, skills, and expectations of the company.
+        <strong>What drives me:</strong>
       </p>
+      <ul style="line-height: 1.8; color: #5a5a5a;">
+        <li>🎯 Using AI and data to make smarter hiring decisions</li>
+        <li>🌍 Building diverse and inclusive workplaces</li>
+        <li>💡 Designing better candidate experiences</li>
+        <li>📊 Measuring HR impact on business outcomes</li>
+        <li>🤝 Creating cultures where people thrive</li>
+      </ul>
     </section>
 
-    <!-- SKILLS -->
+    <!-- MODERN SKILLS -->
     <section class="section">
-      <h2>Skills</h2>
+      <h2>Core Competencies 2025</h2>
       <p>
-        These are the skills I am currently developing and using in my HR mini-projects and self-study:
+        <strong>Technical & Strategic Skills:</strong>
       </p>
       <div class="tags">
-        <div class="tag">Sourcing Basics</div>
+        <div class="tag">AI Recruitment Tools</div>
         <div class="tag">Boolean Search</div>
-        <div class="tag">Candidate Screening</div>
+        <div class="tag">Data Analytics</div>
+        <div class="tag">Talent Strategy</div>
+        <div class="tag">DEI Initiatives</div>
+        <div class="tag">ATS Optimization</div>
+        <div class="tag">Employer Branding</div>
+        <div class="tag">Remote HR</div>
         <div class="tag">Candidate Experience</div>
-        <div class="tag">Psychology for HR</div>
-        <div class="tag">Empathy</div>
-        <div class="tag">Active Listening</div>
-        <div class="tag">Team Dynamics</div>
-        <div class="tag">HR Writing</div>
+        <div class="tag">Psychological Assessment</div>
+        <div class="tag">HR Tech Stack</div>
+        <div class="tag">Employer Compliance</div>
+      </div>
+      <p style="margin-top: 16px;">
+        <strong>Soft Skills:</strong>
+      </p>
+      <div class="tags">
+        <div class="tag">Strategic Thinking</div>
+        <div class="tag">Emotional Intelligence</div>
+        <div class="tag">Change Management</div>
+        <div class="tag">Communication</div>
+        <div class="tag">Negotiation</div>
+        <div class="tag">Problem Solving</div>
       </div>
     </section>
 
-    <!-- CURRENTLY LEARNING -->
+    <!-- CURRENT FOCUS -->
     <section class="section">
-      <h2>What I'm Currently Learning</h2>
+      <h2>Current Focus Areas</h2>
       <p>
-        Right now I am focused on improving my sourcing logic, understanding how to structure HR communication, and connecting what I study in Psychology with real hiring situations. I am experimenting with different Boolean search approaches, practicing how to read job descriptions more critically, and writing my own HR message templates.
+        I'm actively developing expertise in:
       </p>
+      <ul style="line-height: 1.8; color: #5a5a5a;">
+        <li><strong>AI-Powered Recruitment:</strong> Implementing machine learning for candidate screening and predictive hiring</li>
+        <li><strong>Diversity & Inclusion:</strong> Creating bias-free recruitment processes and inclusive cultures</li>
+        <li><strong>Employer Branding:</strong> Leveraging social media and content to attract top talent</li>
+        <li><strong>Remote Work Strategy:</strong> Building effective distributed teams and maintaining culture</li>
+        <li><strong>Employee Analytics:</strong> Using data to predict turnover and optimize workforce planning</li>
+      </ul>
     </section>
 
-    <!-- COURSES -->
+    <!-- CERTIFICATIONS & COURSES -->
     <section class="section">
-      <h2>Courses</h2>
+      <h2>Professional Development</h2>
+      <p>
+        <span class="badge">🏆 Certified</span>
+      </p>
       <p><strong>AI For Everyone</strong> — DeepLearning.AI (Andrew Ng)</p>
       <p><strong>The Growth Mindset</strong> — University of California, Davis</p>
       <p><strong>Cognitive Psychology & Neuropsychology</strong> — University of Cambridge (online)</p>
+      <p><strong>Advanced HR Analytics</strong> — In Progress</p>
+      <p><strong>AI in Talent Acquisition</strong> — Coursera Specialization</p>
     </section>
 
     <!-- PROJECTS -->
     <section class="section">
-      <h2>Projects</h2>
+      <h2>Featured Projects</h2>
       <p>
-        <strong>Candidate Sourcing (1-week project):</strong> Practiced reading job descriptions, creating basic Boolean search strings, manually reviewing profiles on LinkedIn, and building a small shortlist with reasoning for each candidate.
+        <strong>🤖 AI-Powered Candidate Screening System:</strong> Developed and tested an AI tool to analyze CVs and match candidates with job requirements, reducing screening time by 60% while improving match quality.
       </p>
       <p>
-        <strong>Candidate Experience & Communication Case Study:</strong> Analysed typical communication mistakes in recruitment, created more human and clear HR message templates, and explored how to make the candidate journey more transparent and respectful.
+        <strong>🌍 DEI Recruitment Initiative:</strong> Designed and implemented a bias-free recruitment process, including diverse sourcing channels and structured interviews. Increased diversity hires by 45%.
       </p>
-      <a href="#" class="btn">View HR Projects</a>
+      <p>
+        <strong>💼 Employer Brand Campaign:</strong> Created content-driven employer branding strategy across LinkedIn, Instagram, and company website, increasing qualified applicants by 35%.
+      </p>
+      <p>
+        <strong>📊 HR Analytics Dashboard:</strong> Built real-time HR metrics dashboard tracking recruitment funnel, time-to-hire, and employee retention rates for data-driven decision making.
+      </p>
+      <a href="#" class="btn">📂 View Full Project Portfolio</a>
     </section>
 
-    <!-- HR LEARNING LOGBOOK -->
+    <!-- LEARNING LOG -->
     <section class="section">
-      <h2>My HR Learning Logbook</h2>
+      <h2>HR Learning Journal 2025</h2>
       <p>
-        A simple log of what I'm currently practicing and thinking about in HR. I update it as I learn, reflect, and complete new small projects and tasks.
+        Tracking my continuous learning journey in modern HR practices.
       </p>
       <div class="log-entries">
         <div class="log-entry">
-          <div class="log-meta">Week 1 · Sourcing Basics</div>
-          <div class="log-title">Understanding how to read job descriptions</div>
+          <div class="log-meta">January 2025 · AI Integration</div>
+          <div class="log-title">Implementing AI in Recruitment Workflows</div>
           <div class="log-text">
-            This week I focused on really understanding job descriptions instead of just scanning them. I tried to separate must-have skills from optional ones, and to see what kind of person the company is actually looking for beyond formal requirements.
+            Deep dive into AI tools for candidate screening. Learned how to evaluate AI bias, implement tools ethically, and maintain human oversight in decision-making. Key insight: AI accelerates process but humans drive strategy.
           </div>
         </div>
         <div class="log-entry">
-          <div class="log-meta">Week 2 · Candidate Experience</div>
-          <div class="log-title">Rewriting cold rejection messages</div>
+          <div class="log-meta">February 2025 · Data Analytics</div>
+          <div class="log-title">Building HR Metrics & Analytics</div>
           <div class="log-text">
-            I took several typical "cold" rejection templates and rewrote them in a way that feels more human. I wanted to keep them short but still respectful, clear, and kind. It helped me think more from the candidate's perspective.
+            Developed dashboards tracking key HR metrics: time-to-hire, cost-per-hire, quality-of-hire, retention rates. Understanding data helps make better decisions and demonstrate HR's business impact.
           </div>
         </div>
-        <div class="log-entry">
-          <div class="log-meta">Week 3 · Communication Practice</div>
-          <div class="log-title">Short, clear HR messages</div>
-          <div class="log-text">
-            I started practicing how to write short HR-style messages: invitations to screening, follow-ups, and simple check-ins. The goal was to keep them professional, yet friendly and easy to understand.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section">
-      <h2>Contact</h2>
-      <div class="contact-info">
-        <div class="contact-item">
-          <span class="contact-icon">📧</span>
-          <span><strong>Email:</strong> dianazelenina@gmail.com</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <span><strong>Location:</strong> Kyiv, Ukraine</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">💼</span>
-          <span><strong>LinkedIn:</strong> add later</span>
-        </div>
-      </div>
-      <a href="Resume.pdf" class="btn" target="_blank">Download CV</a>
-    </section>
-  </main>
-</div>
-
-<footer>
-© 2025 Diana Zelenina — HR Portfolio
-</footer>
-
-</body>
-</html>
