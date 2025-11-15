@@ -12,136 +12,187 @@
             color: #4a4747;
         }
 
-        /* HEADER / HERO */
-        header {
+        /* MAIN LAYOUT */
+        .layout {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* LEFT COLUMN (PHOTO + SHORT INFO) */
+        .sidebar {
+            flex: 0 0 280px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-card {
             background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
-            padding: 60px 20px;
-            color: white;
-        }
-
-        .hero {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .hero-photo-wrapper {
-            flex: 0 0 180px;
-            display: flex;
-            justify-content: center;
+            padding: 24px 20px 26px;
+            border-radius: 18px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 10px 26px rgba(0,0,0,0.2);
+            animation: popIn 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(8px) scale(0.98);
         }
 
         .photo {
-            width: 170px;
-            height: 170px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #ffffff;
             box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 14px;
+            animation: softFloat 4s ease-in-out infinite;
         }
 
-        .photo:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 10px 24px rgba(0,0,0,0.3);
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
+        .sidebar h1 {
             margin: 0;
-            font-size: 40px;
+            font-size: 24px;
             font-weight: 700;
         }
 
-        .hero-text p {
-            margin-top: 10px;
-            font-size: 18px;
-            opacity: 0.96;
-        }
-
-        .hero-sub {
-            margin-top: 14px;
+        .sidebar-role {
+            margin-top: 6px;
             font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .sidebar-line {
+            width: 60%;
+            height: 2px;
+            margin: 16px auto 10px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sidebar-line::after {
+            content: "";
+            position: absolute;
+            left: -40%;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: #ffffff;
             opacity: 0.9;
+            animation: lineGlow 2.4s linear infinite;
         }
 
-        /* GENERAL CONTAINER */
-        .container {
-            width: 92%;
-            max-width: 900px;
-            margin: 35px auto;
+        .sidebar-sub {
+            font-size: 13px;
+            opacity: 0.92;
+            line-height: 1.5;
         }
 
-        /* SECTION CARD */
+        .sidebar-tags {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .sidebar-tag {
+            font-size: 11px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.32);
+        }
+
+        /* RIGHT COLUMN (CONTENT) */
+        .content {
+            flex: 1;
+        }
+
+        /* HEADER BAR */
+        .top-header {
+            background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
+            padding: 14px 22px;
+            border-radius: 16px;
+            color: #fff;
+            margin-bottom: 22px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .top-header p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* SECTIONS */
         .section {
             background: #ffffff;
-            padding: 28px;
+            padding: 24px 24px 22px;
             border-radius: 14px;
-            margin-bottom: 28px;
+            margin-bottom: 22px;
             border-left: 6px solid #d8a7a1; /* rose gold accent */
             box-shadow: 0 5px 15px rgba(0,0,0,0.07);
             animation: fadeUp 0.6s ease forwards;
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(12px);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .section:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-        .section:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
+        .section:nth-child(5) { animation-delay: 0.4s; }
 
         .section h2 {
             margin-top: 0;
-            font-size: 26px;
+            font-size: 22px;
             color: #c2847a;
             font-weight: 700;
+        }
+
+        .section p {
+            margin-top: 8px;
+            line-height: 1.55;
+            font-size: 14px;
         }
 
         /* SKILLS TAGS */
         .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 12px;
         }
 
         .tag {
-            padding: 8px 14px;
+            padding: 7px 12px;
             background-color: #f2e2df;
             color: #6d4c4c;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
         }
 
         /* BUTTON */
         .btn {
             display: inline-block;
-            padding: 12px 22px;
+            padding: 11px 20px;
             background-color: #d8a7a1;
             color: white;
             font-weight: 600;
             border-radius: 10px;
             text-decoration: none;
-            margin-top: 12px;
+            margin-top: 10px;
+            font-size: 14px;
             transition: 0.2s ease;
         }
 
@@ -151,25 +202,49 @@
 
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 18px;
             color: #8a8989;
-            font-size: 14px;
-            margin-top: 40px;
+            font-size: 13px;
+            margin-top: 28px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes softFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes lineGlow {
+            0% { left: -40%; }
+            100% { left: 110%; }
         }
 
         /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero {
+        @media (max-width: 900px) {
+            .layout {
                 flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .sidebar-card {
                 text-align: center;
-            }
-
-            .hero-photo-wrapper {
-                margin-bottom: 10px;
-            }
-
-            .hero-text h1 {
-                font-size: 32px;
             }
         }
     </style>
@@ -177,91 +252,108 @@
 
 <body>
 
-<header>
-    <div class="hero">
-        <div class="hero-photo-wrapper">
-            <!-- Твоє справжнє фото з репозиторію -->
+<div class="layout">
+
+    <!-- LEFT COLUMN: PHOTO + SHORT INFO -->
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <!-- Якщо нове фото має іншу назву – заміни тут -->
             <img src="фото для сайту.jpg" alt="Diana photo" class="photo" />
-        </div>
-        <div class="hero-text">
             <h1>Diana Zelenina</h1>
-            <p>HR Trainee • Psychology Student • Future Talent Specialist</p>
-            <div class="hero-sub">
-                Actively growing my HR skillset through sourcing practice, HR projects, and continuous learning.
+            <div class="sidebar-role">HR Trainee · Psychology Student</div>
+
+            <div class="sidebar-line"></div>
+
+            <div class="sidebar-sub">
+                Curious about people, decisions, and work culture.  
+                Step by step building real HR skills through projects and practice.
+            </div>
+
+            <div class="sidebar-tags">
+                <span class="sidebar-tag">Sourcing</span>
+                <span class="sidebar-tag">Candidate Experience</span>
+                <span class="sidebar-tag">Communication</span>
+                <span class="sidebar-tag">Growth mindset</span>
             </div>
         </div>
-    </div>
-</header>
+    </aside>
 
-<div class="container">
-
-    <!-- ABOUT ME -->
-    <div class="section">
-        <h2>About Me</h2>
-        <p>
-            I am an aspiring HR specialist with a background in Psychology. I am especially interested in how people think,
-            how they make decisions, and how this translates into work, communication, and teamwork. I focus on developing
-            strong fundamentals in sourcing, candidate screening, and candidate experience.
-            My goal is to grow step by step and build real practical experience in HR, not only theory.
-        </p>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="section">
-        <h2>Skills</h2>
-        <p>
-            These are the skills I am currently developing and using in my projects and self-study:
-        </p>
-        <div class="tags">
-            <div class="tag">Sourcing Basics</div>
-            <div class="tag">Boolean Search</div>
-            <div class="tag">Candidate Screening</div>
-            <div class="tag">Candidate Experience</div>
-            <div class="tag">Psychology for HR</div>
-            <div class="tag">Empathy</div>
-            <div class="tag">Communication</div>
-            <div class="tag">Team Dynamics</div>
-            <div class="tag">HR Writing</div>
+    <!-- RIGHT COLUMN: CONTENT -->
+    <main class="content">
+        <div class="top-header">
+            <p>
+                Early-career HR enthusiast with a Psychology background, interested in sourcing, candidate
+                experience, and how people behave at work. Open to internships and entry-level HR roles.
+            </p>
         </div>
-    </div>
 
-    <!-- COURSES -->
-    <div class="section">
-        <h2>Courses</h2>
-        <p>AI For Everyone — DeepLearning.AI (Andrew Ng)</p>
-        <p>The Growth Mindset — University of California, Davis</p>
-        <p>Cognitive Psychology & Neuropsychology — University of Cambridge (online)</p>
-    </div>
+        <!-- ABOUT ME -->
+        <section class="section">
+            <h2>About Me</h2>
+            <p>
+                I am an aspiring HR specialist with a background in Psychology. I am especially interested in how people think,
+                how they make decisions, and how this shows up in communication, motivation, and teamwork. I focus on building
+                strong fundamentals in sourcing, candidate screening, and candidate experience. My goal is to grow step by step
+                and collect real practical experience, not only theory from courses.
+            </p>
+        </section>
 
-    <!-- PROJECTS -->
-    <div class="section">
-        <h2>Projects</h2>
-        <p>
-            <strong>Candidate Sourcing (1-week project):</strong>
-            Practiced reading job descriptions, creating basic Boolean search strings, manually reviewing profiles
-            on LinkedIn, and building a small shortlist with reasoning for each candidate.
-        </p>
-        <p>
-            <strong>Candidate Experience & Communication Case Study:</strong>
-            Analyzed typical communication mistakes in recruitment, created more human and clear HR message templates,
-            and explored how to make the candidate journey more transparent and respectful.
-        </p>
+        <!-- SKILLS -->
+        <section class="section">
+            <h2>Skills</h2>
+            <p>
+                These are the skills I am currently developing and using in my HR mini-projects and self-study:
+            </p>
+            <div class="tags">
+                <div class="tag">Sourcing Basics</div>
+                <div class="tag">Boolean Search</div>
+                <div class="tag">Candidate Screening</div>
+                <div class="tag">Candidate Experience</div>
+                <div class="tag">Psychology for HR</div>
+                <div class="tag">Empathy</div>
+                <div class="tag">Active Listening</div>
+                <div class="tag">Team Dynamics</div>
+                <div class="tag">HR Writing</div>
+            </div>
+        </section>
 
-        <!-- Сюди потім можна вставити лінк на Notion -->
-        <a href="#" class="btn">View HR Projects</a>
-    </div>
+        <!-- COURSES -->
+        <section class="section">
+            <h2>Courses</h2>
+            <p><strong>AI For Everyone</strong> — DeepLearning.AI (Andrew Ng)</p>
+            <p><strong>The Growth Mindset</strong> — University of California, Davis</p>
+            <p><strong>Cognitive Psychology & Neuropsychology</strong> — University of Cambridge (online)</p>
+        </section>
 
-    <!-- CONTACT -->
-    <div class="section">
-        <h2>Contact</h2>
-        <p><strong>Email:</strong> dianazelenina@gmail.com</p>
-        <p><strong>Location:</strong> Kyiv, Ukraine</p>
-        <p><strong>LinkedIn:</strong> add later</p>
+        <!-- PROJECTS -->
+        <section class="section">
+            <h2>Projects</h2>
+            <p>
+                <strong>Candidate Sourcing (1-week project):</strong>
+                Practiced reading job descriptions, creating basic Boolean search strings, manually reviewing profiles
+                on LinkedIn, and building a small shortlist with reasoning for each candidate.
+            </p>
+            <p>
+                <strong>Candidate Experience & Communication Case Study:</strong>
+                Analyzed typical communication mistakes in recruitment, created more human and clear HR message templates,
+                and explored how to make the candidate journey more transparent and respectful.
+            </p>
 
-        <!-- Кнопка з твоїм PDF CV -->
-        <a href="Resume.pdf" class="btn" target="_blank">Download CV</a>
-    </div>
+            <!-- Сюди можеш вставити лінк на Notion-сторінку з проєктами -->
+            <a href="#" class="btn">View HR Projects</a>
+        </section>
 
+        <!-- CONTACT -->
+        <section class="section">
+            <h2>Contact</h2>
+            <p><strong>Email:</strong> dianazelenina@gmail.com</p>
+            <p><strong>Location:</strong> Kyiv, Ukraine</p>
+            <p><strong>LinkedIn:</strong> add later</p>
+
+            <!-- Кнопка з твоїм PDF CV -->
+            <a href="Resume.pdf" class="btn" target="_blank">Download CV</a>
+        </section>
+    </main>
 </div>
 
 <footer>
@@ -270,4 +362,6 @@
 
 </body>
 </html>
+
+
 
