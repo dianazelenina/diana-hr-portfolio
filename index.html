@@ -1,64 +1,548 @@
-javascript
-'use client';
-                Deep dive into AI tools for candidate screening. Learned how to evaluate AI bias, implement tools ethically, and maintain human oversight in decision-making. Key insight: AI accelerates process but humans drive strategy.
-              </p>
-            </div>
-            
-            <div className="bg-white p-8 rounded-2xl shadow-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-4"></div>
-                <span className="text-sm text-gray-500">February 2025 · Data Analytics</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Building HR Metrics & Analytics</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Developed dashboards tracking key HR metrics: time-to-hire, cost-per-hire, quality-of-hire, retention rates. Understanding data helps make better decisions and demonstrate HR's business impact.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diana Zelenina – HR Portfolio</title>
+    <meta name="description" content="HR trainee portfolio of Diana Zelenina – psychology student, sourcing beginner, and candidate experience enthusiast.">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", Arial, sans-serif;
+            background-color: #f8f4f1; /* beige */
+            color: #4a4747;
+        }
 
-      {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-700">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-8">Let's Connect</h2>
-          <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">
-            Ready to discuss how modern HR practices can transform your organization? I'm always excited to connect with fellow professionals and explore new opportunities.
-          </p>
-          <div className="flex justify-center space-x-6">
-            <a
-              href="mailto:contact@dianazelenina.com"
-              className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-shadow flex items-center"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Email Me
-            </a>
-            <a
-              href="#"
-              className="bg-blue-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-400 transition-colors flex items-center"
-            >
-              <Linkedin className="w-5 h-5 mr-2" />
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </section>
+        /* MAIN LAYOUT */
+        .layout {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <div className="mb-6">
-            <h3 className="text-xl font-bold text-white mb-2">Diana Zelenina</h3>
-            <p className="text-gray-400">Modern HR Professional • AI Recruitment Specialist • 2025</p>
-          </div>
-          <div className="border-t border-gray-800 pt-6">
-            <p className="text-sm text-gray-500">
-              © 2025 Diana Zelenina. Crafted with passion for modern HR practices.
+        /* LEFT COLUMN (PHOTO + SHORT INFO) */
+        .sidebar {
+            flex: 0 0 280px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-card {
+            background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
+            padding: 24px 20px 26px;
+            border-radius: 18px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 10px 26px rgba(0,0,0,0.2);
+            animation: popIn 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(8px) scale(0.98);
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            margin-bottom: 14px;
+            animation: softFloat 4s ease-in-out infinite;
+        }
+
+        .sidebar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .sidebar-role {
+            margin-top: 6px;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .sidebar-line {
+            width: 60%;
+            height: 2px;
+            margin: 16px auto 10px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .sidebar-line::after {
+            content: "";
+            position: absolute;
+            left: -40%;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: #ffffff;
+            opacity: 0.9;
+            animation: lineGlow 2.4s linear infinite;
+        }
+
+        .sidebar-sub {
+            font-size: 13px;
+            opacity: 0.92;
+            line-height: 1.5;
+        }
+
+        .sidebar-tags {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .sidebar-tag {
+            font-size: 11px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.32);
+        }
+
+        /* HR ANIMATED ICONS UNDER PHOTO */
+        .hr-icons {
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .hr-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background: rgba(255,255,255,0.22);
+            border: 1px solid rgba(255,255,255,0.45);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+        }
+
+        .hr-icon span {
+            display: block;
+        }
+
+        .hr-icon-heart {
+            animation: heartPulse 2.2s ease-in-out infinite;
+        }
+
+        .hr-icon-bubble {
+            animation: bubbleFloat 3s ease-in-out infinite;
+        }
+
+        .hr-icon-leaf {
+            animation: leafGrow 2.8s ease-in-out infinite;
+        }
+
+        .hr-icon-cv {
+            animation: cardTilt 3.2s ease-in-out infinite;
+        }
+
+        /* RIGHT COLUMN (CONTENT) */
+        .content {
+            flex: 1;
+        }
+
+        /* HEADER BAR */
+        .top-header {
+            background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
+            padding: 14px 22px;
+            border-radius: 16px;
+            color: #fff;
+            margin-bottom: 22px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        .top-header p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* SECTIONS */
+        .section {
+            background: #ffffff;
+            padding: 24px 24px 22px;
+            border-radius: 14px;
+            margin-bottom: 22px;
+            border-left: 6px solid #d8a7a1; /* rose gold accent */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            animation: fadeUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #c2847a;
+            font-weight: 700;
+        }
+
+        .section p {
+            margin-top: 8px;
+            line-height: 1.55;
+            font-size: 14px;
+        }
+
+        /* SKILLS TAGS */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            padding: 7px 12px;
+            background-color: #f2e2df;
+            color: #6d4c4c;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            padding: 11px 20px;
+            background: linear-gradient(135deg, #d8a7a1, #c98f88);
+            color: white;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.16);
+            filter: brightness(1.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            color: #8a8989;
+            font-size: 13px;
+            margin-top: 28px;
+        }
+
+        /* HR LEARNING LOGBOOK */
+        .log-entries {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .log-entry {
+            border-radius: 10px;
+            border: 1px solid #ecd6d0;
+            padding: 12px 14px;
+            background-color: #fdf9f7;
+            transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .log-entry:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+            border-color: #d8a7a1;
+        }
+
+        .log-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #9a7770;
+            margin-bottom: 4px;
+        }
+
+        .log-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #5a4644;
+            margin-bottom: 4px;
+        }
+
+        .log-text {
+            font-size: 13px;
+            color: #6a5a58;
+            line-height: 1.5;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes softFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes lineGlow {
+            0% { left: -40%; }
+            100% { left: 110%; }
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.12); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.08); }
+        }
+
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        @keyframes leafGrow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08, 1.12); }
+        }
+
+        @keyframes cardTilt {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-4deg); }
+            75% { transform: rotate(3deg); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .sidebar-card {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- LEFT COLUMN: PHOTO + SHORT INFO -->
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <!-- Якщо фото має іншу назву – заміни тут -->
+            <img src="фото для сайту.jpg" alt="Diana photo" class="photo" />
+            <h1>Diana Zelenina</h1>
+            <div class="sidebar-role">HR Trainee · Psychology Student</div>
+
+            <div class="sidebar-line"></div>
+
+            <div class="sidebar-sub">
+                Curious about people, decisions, and work culture.  
+                Step by step building real HR skills through projects and practice.
+            </div>
+
+            <div class="sidebar-tags">
+                <span class="sidebar-tag">Sourcing</span>
+                <span class="sidebar-tag">Candidate Experience</span>
+                <span class="sidebar-tag">Communication</span>
+                <span class="sidebar-tag">Growth mindset</span>
+            </div>
+
+            <!-- HR ANIMATED ICONS -->
+            <div class="hr-icons">
+                <div class="hr-icon hr-icon-heart"><span>❤</span></div>
+                <div class="hr-icon hr-icon-bubble"><span>💬</span></div>
+                <div class="hr-icon hr-icon-leaf"><span>🌱</span></div>
+                <div class="hr-icon hr-icon-cv"><span>📄</span></div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- RIGHT COLUMN: CONTENT -->
+    <main class="content">
+        <div class="top-header">
+            <p>
+                Early-career HR enthusiast with a Psychology background, interested in sourcing, candidate
+                experience, and how people behave at work. Open to internships and entry-level HR roles.
             </p>
-          </div>
         </div>
-      </section>
-    </div>
-  );
-}
+
+        <!-- ABOUT ME -->
+        <section class="section">
+            <h2>About Me</h2>
+            <p>
+                I am an aspiring HR specialist with a background in Psychology. I am especially interested in how people think,
+                how they make decisions, and how this shows up in communication, motivation, and teamwork. I focus on building
+                strong fundamentals in sourcing, candidate screening, and candidate experience. My goal is to grow step by step
+                and collect real practical experience, not only theory from courses.
+            </p>
+        </section>
+
+        <!-- WHY HR -->
+        <section class="section">
+            <h2>Why I Want to Work in HR</h2>
+            <p>
+                I like the idea that HR is not only about processes, but also about people’s real stories. For me, HR is where
+                psychology, communication, and business meet. I enjoy listening to people, understanding what they are looking for,
+                and trying to see how they could fit into a team or company.
+            </p>
+            <p>
+                I want to grow in HR because I see it as a place where I can combine empathy with structure: helping candidates feel
+                respected during the process, while still thinking logically about requirements, skills, and expectations of the company.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section">
+            <h2>Skills</h2>
+            <p>
+                These are the skills I am currently developing and using in my HR mini-projects and self-study:
+            </p>
+            <div class="tags">
+                <div class="tag">Sourcing Basics</div>
+                <div class="tag">Boolean Search</div>
+                <div class="tag">Candidate Screening</div>
+                <div class="tag">Candidate Experience</div>
+                <div class="tag">Psychology for HR</div>
+                <div class="tag">Empathy</div>
+                <div class="tag">Active Listening</div>
+                <div class="tag">Team Dynamics</div>
+                <div class="tag">HR Writing</div>
+            </div>
+        </section>
+
+        <!-- CURRENTLY LEARNING -->
+        <section class="section">
+            <h2>What I’m Currently Learning</h2>
+            <p>
+                Right now I am focused on improving my sourcing logic, understanding how to structure HR communication, and connecting
+                what I study in Psychology with real hiring situations. I am experimenting with different Boolean search approaches,
+                practicing how to read job descriptions more critically, and writing my own HR message templates.
+            </p>
+        </section>
+
+        <!-- COURSES -->
+        <section class="section">
+            <h2>Courses</h2>
+            <p><strong>AI For Everyone</strong> — DeepLearning.AI (Andrew Ng)</p>
+            <p><strong>The Growth Mindset</strong> — University of California, Davis</p>
+            <p><strong>Cognitive Psychology & Neuropsychology</strong> — University of Cambridge (online)</p>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section">
+            <h2>Projects</h2>
+            <p>
+                <strong>Candidate Sourcing (1-week project):</strong>
+                Practiced reading job descriptions, creating basic Boolean search strings, manually reviewing profiles
+                on LinkedIn, and building a small shortlist with reasoning for each candidate.
+            </p>
+            <p>
+                <strong>Candidate Experience & Communication Case Study:</strong>
+                Analysed typical communication mistakes in recruitment, created more human and clear HR message templates,
+                and explored how to make the candidate journey more transparent and respectful.
+            </p>
+
+            <!-- Сюди можеш вставити лінк на Notion-сторінку з проєктами -->
+            <a href="#" class="btn">View HR Projects</a>
+        </section>
+
+        <!-- HR LEARNING LOGBOOK -->
+        <section class="section">
+            <h2>My HR Learning Logbook</h2>
+            <p>
+                A simple log of what I’m currently practicing and thinking about in HR. I update it as I learn, reflect,
+                and complete new small projects and tasks.
+            </p>
+
+            <div class="log-entries">
+                <div class="log-entry">
+                    <div class="log-meta">Week 1 · Sourcing Basics</div>
+                    <div class="log-title">Understanding how to read job descriptions</div>
+                    <div class="log-text">
+                        This week I focused on really understanding job descriptions instead of just scanning them.
+                        I tried to separate must-have skills from optional ones, and to see what kind of person the
+                        company is actually looking for beyond formal requirements.
+                    </div>
+                </div>
+
+                <div class="log-entry">
+                    <div class="log-meta">Week 2 · Candidate Experience</div>
+                    <div class="log-title">Rewriting cold rejection messages</div>
+                    <div class="log-text">
+                        I took several typical “cold” rejection templates and rewrote them in a way that feels more human.
+                        I wanted to keep them short but still respectful, clear, and kind. It helped me think more from
+                        the candidate’s perspective.
+                    </div>
+                </div>
+
+                <div class="log-entry">
+                    <div class="log-meta">Week 3 · Communication Practice</div>
+                    <div class="log-title">Short, clear HR messages</div>
+                    <div class="log-text">
+                        I started practicing how to write short HR-style messages: invitations to screening, follow-ups,
+                        and simple check-ins. The goal was to keep them professional, yet friendly and easy to understand.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section">
+            <h2>Contact</h2>
+            <p><strong>Email:</strong> dianazelenina@gmail.com</p>
+            <p><strong>Location:</strong> Kyiv, Ukraine</p>
+            <p><strong>LinkedIn:</strong> add later</p>
+
+            <!-- Кнопка з твоїм PDF CV -->
+            <a href="Resume.pdf" class="btn" target="_blank">Download CV</a>
+        </section>
+    </main>
+</div>
+
+<footer>
+    © 2025 Diana Zelenina — HR Portfolio
+</footer>
+
+</body>
+</html>
 
