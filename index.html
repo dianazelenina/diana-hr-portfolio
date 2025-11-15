@@ -1,76 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diana Zelenina – HR Trainee Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diana Zelenina – HR Portfolio</title>
     <style>
         body {
-            background-color: #f7f7f7;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            color: #333;
+            font-family: "Inter", Arial, sans-serif;
+            background-color: #f8f4f1; /* beige */
+            color: #4a4747;
         }
 
+        /* HEADER */
         header {
-            background-color: #000;
-            color: #fff;
-            padding: 40px 20px;
+            background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
+            padding: 70px 20px;
             text-align: center;
+            color: white;
         }
-
         header h1 {
             margin: 0;
-            font-size: 36px;
-            letter-spacing: 1px;
+            font-size: 42px;
+            font-weight: 700;
         }
-
         header p {
+            opacity: 0.95;
+            font-size: 20px;
             margin-top: 10px;
-            font-size: 18px;
-            color: #ccc;
         }
 
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 25px;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* GENERAL CONTAINER */
         .container {
-            width: 90%;
+            width: 92%;
             max-width: 900px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 25px;
+            margin: 35px auto;
+        }
+
+        /* SECTION CARD */
+        .section {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 14px;
+            margin-bottom: 28px;
+            border-left: 6px solid #d8a7a1; /* rose gold accent */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        }
+        .section h2 {
+            margin-top: 0;
+            font-size: 26px;
+            color: #c2847a;
+            font-weight: 700;
+        }
+
+        /* SKILLS TAGS */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .tag {
+            padding: 8px 14px;
+            background-color: #f2e2df;
+            color: #6d4c4c;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background-color: #d8a7a1;
+            color: white;
+            font-weight: 600;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-decoration: none;
+            margin-top: 12px;
+            transition: 0.2s;
         }
-
-        h2 {
-            border-left: 4px solid #000;
-            padding-left: 10px;
-            margin-top: 30px;
-        }
-
-        .section p {
-            line-height: 1.6;
-        }
-
-        ul {
-            line-height: 1.8;
+        .btn:hover {
+            background-color: #c98f88;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+            color: #8a8989;
+            font-size: 14px;
             margin-top: 40px;
-            color: #777;
-        }
-
-        a {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -78,63 +109,74 @@
 <body>
 
 <header>
+    <img src="https://via.placeholder.com/150" alt="Your Photo" class="photo" />
     <h1>Diana Zelenina</h1>
-    <p>Aspiring HR Specialist | Psychology Student</p>
+    <p>HR Trainee • Psychology Student • Future Talent Specialist</p>
 </header>
 
 <div class="container">
 
+    <!-- ABOUT ME -->
     <div class="section">
         <h2>About Me</h2>
         <p>
-            I am an aspiring HR specialist currently studying Psychology and developing my skills through
-            HR courses, practice tasks, and self-education. I am motivated, fast-learning, empathetic, and
-            passionate about communication, candidate experience, and understanding human behavior.
+            I am an aspiring HR specialist with a psychology background. I focus on developing strong communication,
+            sourcing, and candidate experience skills. I enjoy understanding how people think, how teams work, and how
+            to create a positive hiring experience. My goal is to grow professionally and develop solid HR foundations
+            through practice and continuous learning.
         </p>
     </div>
 
+    <!-- SKILLS -->
     <div class="section">
         <h2>Skills</h2>
-        <ul>
-            <li>Candidate sourcing basics</li>
-            <li>Boolean search (beginner)</li>
-            <li>CV & profile screening</li>
-            <li>Job description writing</li>
-            <li>Active listening</li>
-            <li>Empathy & communication</li>
-            <li>Understanding workplace behavior</li>
-        </ul>
+        <div class="tags">
+            <div class="tag">Sourcing Basics</div>
+            <div class="tag">Boolean Search</div>
+            <div class="tag">Candidate Screening</div>
+            <div class="tag">Communication</div>
+            <div class="tag">Psychology for HR</div>
+            <div class="tag">Empathy</div>
+            <div class="tag">Team Dynamics</div>
+            <div class="tag">HR Writing</div>
+        </div>
     </div>
 
+    <!-- COURSES -->
     <div class="section">
         <h2>Courses</h2>
-        <ul>
-            <li>AI For Everyone — Andrew Ng, DeepLearning.AI</li>
-            <li>The Growth Mindset — University of California, Davis</li>
-            <li>Cognitive Psychology — University of Cambridge</li>
-        </ul>
+        <p>AI For Everyone — DeepLearning.AI</p>
+        <p>The Growth Mindset — UC Davis</p>
+        <p>Cognitive Psychology — University of Cambridge</p>
     </div>
 
+    <!-- PROJECTS -->
     <div class="section">
         <h2>Projects</h2>
-        <ul>
-            <li>HR sourcing practice (Boolean search, candidate profile review)</li>
-            <li>Psychology & behavior case studies</li>
-            <li>Communication style analysis projects (university)</li>
-        </ul>
+        <p><strong>Candidate Sourcing Simulation:</strong>  
+        A 1-week practical project where I learned to read job descriptions, write Boolean searches,
+        evaluate profiles, and build my first shortlist.</p>
+
+        <p><strong>Candidate Experience Case Study:</strong>  
+        An analytical project focused on improving HR communication, creating templates, and understanding
+        candidate needs and expectations.</p>
+
+        <a href="#" class="btn">View Projects</a>
     </div>
 
+    <!-- CONTACT -->
     <div class="section">
-        <h2>Contacts</h2>
-        <p><b>Email:</b> dianazelenina@gmail.com</p>
-        <p><b>Location:</b> Kyiv, Ukraine</p>
-        <p><b>LinkedIn:</b> <a href="#">Add later</a></p>
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> dianazelenina@gmail.com</p>
+        <p><strong>Location:</strong> Kyiv, Ukraine</p>
+        <p><strong>LinkedIn:</strong> add later</p>
+        <a href="#" class="btn">Download CV</a>
     </div>
 
 </div>
 
 <footer>
-    © 2025 Diana Zelenina  
+    © 2025 Diana Zelenina — HR Portfolio
 </footer>
 
 </body>
