@@ -13,11 +13,10 @@
       --stroke: rgba(15, 23, 42, 0.06);
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
       --accent: #ec4899;
-      --accent-soft: rgba(236, 72, 153, 0.1);
+      --accent2: #6366f1;
       --text-main: #111827;
       --text-muted: #6b7280;
       --radius-xl: 24px;
-      --radius-lg: 18px;
     }
 
     * {
@@ -37,8 +36,6 @@
       text-decoration: none;
     }
 
-    /* ===== SHELL ===== */
-
     .shell {
       max-width: 1100px;
       margin: 16px auto 40px;
@@ -53,6 +50,7 @@
       justify-content: space-between;
       gap: 16px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -106,6 +104,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .nav-link {
@@ -142,133 +141,127 @@
       white-space: nowrap;
     }
 
-    /* ===== LAYOUT ===== */
+    /* ===== HERO ===== */
 
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 860px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-      .top-bar {
-        flex-wrap: wrap;
-        align-items: flex-start;
-      }
-    }
-
-    /* ===== SIDEBAR CARD ===== */
-
-    .card {
+    .hero-card {
       background: var(--card);
       border-radius: var(--radius-xl);
       border: 1px solid var(--stroke);
       box-shadow: var(--shadow-soft);
+      padding: 20px 22px 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
-    .profile-card {
-      padding: 24px 22px 20px;
-      text-align: center;
+    @media (max-width: 800px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
     }
 
-    .profile-photo-wrap {
-      width: 150px;
-      height: 150px;
-      margin: 4px auto 12px;
-      border-radius: 999px;
-      padding: 3px;
-      background: conic-gradient(from 200deg, #ec4899, #6366f1, #f97316, #ec4899);
+    .hero-left {
+      display: flex;
+      gap: 16px;
+      align-items: center;
     }
 
-    .profile-photo {
+    @media (max-width: 800px) {
+      .hero-left {
+        justify-content: flex-start;
+      }
+    }
+
+    .hero-photo-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .hero-photo-wrap img {
       width: 100%;
       height: 100%;
-      border-radius: inherit;
       object-fit: cover;
       display: block;
     }
 
-    .profile-name {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .profile-role {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .profile-meta {
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .icon-row {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .icon-pill {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      background: #f9fafb;
-    }
-
-    .icon-pill:nth-child(1) { animation: float1 3s infinite ease-in-out; }
-    .icon-pill:nth-child(2) { animation: float2 3.4s infinite ease-in-out; }
-    .icon-pill:nth-child(3) { animation: float3 3.1s infinite ease-in-out; }
-    .icon-pill:nth-child(4) { animation: float4 3.6s infinite ease-in-out; }
-
-    @keyframes float1 {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-    }
-    @keyframes float2 {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(3px); }
-    }
-    @keyframes float3 {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-2px); }
-    }
-    @keyframes float4 {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(4px); }
-    }
-
-    .sidebar-links {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(226, 232, 240, 0.9);
-      font-size: 13px;
-      text-align: left;
-    }
-
-    .sidebar-links a {
-      color: #2563eb;
-    }
-
-    .sidebar-links-row {
+    .hero-name-block {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
 
-    /* ===== MAIN CONTENT ===== */
+    .hero-name {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .hero-role {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-right {
+      font-size: 14px;
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #f9fafb;
+      font-size: 13px;
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    /* ===== CONTENT SECTIONS ===== */
 
     .content-column {
       display: flex;
@@ -310,6 +303,12 @@
       line-height: 1.6;
     }
 
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -325,47 +324,6 @@
       border: 1px solid rgba(148, 163, 184, 0.6);
       color: #374151;
     }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: none;
-      font-size: 14px;
-      font-weight: 600;
-      background: linear-gradient(135deg, #ec4899, #6366f1);
-      color: #fff;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: 0.18s ease;
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(79, 70, 229, 0.35);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 14px;
-      font-size: 13px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: #f9fafb;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
   </style>
 </head>
 <body>
@@ -391,136 +349,128 @@
       </nav>
     </header>
 
-    <!-- MAIN LAYOUT -->
-    <main class="layout">
-      <!-- LEFT: PROFILE CARD -->
-      <aside class="card profile-card">
-        <div class="profile-photo-wrap">
-          <img src="фото для сайту.jpg" alt="Diana Zelenina" class="profile-photo" />
+    <!-- HERO -->
+    <section class="hero-card">
+      <div class="hero-left">
+        <div class="hero-photo-wrap">
+          <!-- важливо: назва файлу повинна збігатися з тим, що в репозиторії -->
+          <img src="фото для сайту.jpg" alt="Diana Zelenina" />
         </div>
-        <div class="profile-name">Diana Zelenina</div>
-        <div class="profile-role">HR Trainee · Psychology Student</div>
-
-        <div class="profile-meta">
-          Kyiv, Ukraine · Early-career HR with strong interest in sourcing,
-          candidate experience and modern workplace culture.
-        </div>
-
-        <div class="icon-row">
-          <div class="icon-pill">❤</div>
-          <div class="icon-pill">💬</div>
-          <div class="icon-pill">🌱</div>
-          <div class="icon-pill">📄</div>
-        </div>
-
-        <div class="sidebar-links">
-          <div class="sidebar-links-row">
-            <span>Email: <a href="mailto:dianazelenin@gmail.com">dianazelenin@gmail.com</a></span>
-            <span>LinkedIn: <a href="https://www.linkedin.com" target="_blank">profile</a></span>
-            <span>Portfolio site: this page</span>
+        <div class="hero-name-block">
+          <div class="hero-name">Diana Zelenina</div>
+          <div class="hero-role">HR Trainee · Psychology Student</div>
+          <div class="hero-meta">
+            Kyiv, Ukraine · Early-career HR with strong interest in sourcing, candidate experience and
+            healthy workplace culture.
           </div>
         </div>
-      </aside>
+      </div>
 
-      <!-- RIGHT: CONTENT -->
-      <section class="content-column">
+      <div class="hero-right">
+        <div>
+          I’m building my HR foundation through online programs, self-study and practical projects.
+          With a background in psychology, I focus on how people think, decide and work together – and
+          how HR can support that in a healthy way.
+        </div>
+        <div>
+          I’m especially interested in junior-level sourcing, ATS basics, candidate communication and
+          thoughtful onboarding. I’m open to internships and trainee roles where I can learn and add
+          value step by step.
+        </div>
 
-        <article class="section-card">
-          <div class="section-header">
-            <h2 class="section-title">About Me</h2>
-            <span class="section-tag">Snapshot</span>
-          </div>
-          <div class="section-body">
-            I’m building my HR foundation through online programs, self-study and
-            practical projects. With a background in psychology, I focus on how
-            people think, decide and work together – and how HR can support that
-            in a healthy way. I’m especially interested in junior-level sourcing,
-            ATS basics, candidate communication and thoughtful onboarding.
-          </div>
-        </article>
+        <div class="hero-actions">
+          <a href="Resume.pdf" target="_blank" rel="noopener" class="btn-primary">
+            Download CV
+          </a>
+          <a href="blog.html" class="btn-ghost">
+            View learning log
+          </a>
+        </div>
+      </div>
+    </section>
 
-        <article class="section-card">
-          <div class="section-header">
-            <h2 class="section-title">Why HR</h2>
-            <span class="section-tag">Motivation</span>
-          </div>
-          <div class="section-body">
-            I see HR not just as “hiring people”, but as building fair, safe and
-            productive environments where people can grow. My psychology studies
-            help me understand emotions, motivation and behavior, which I want
-            to translate into better communication with candidates and teams.
-          </div>
-        </article>
+    <!-- MAIN CONTENT (одна колонка) -->
+    <main class="content-column">
 
-        <article class="section-card">
-          <div class="section-header">
-            <h2 class="section-title">Skills</h2>
-            <span class="section-tag">Early-career</span>
-          </div>
-          <div class="section-body">
-            <div class="section-subtitle">HR & communication:</div>
-            <div class="pill-row">
-              <span class="skill-pill">Candidate sourcing basics</span>
-              <span class="skill-pill">Boolean search (junior)</span>
-              <span class="skill-pill">CV & profile screening</span>
-              <span class="skill-pill">Writing simple job descriptions</span>
-              <span class="skill-pill">Empathy & active listening</span>
-            </div>
+      <article class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Why HR</h2>
+          <span class="section-tag">Motivation</span>
+        </div>
+        <div class="section-body">
+          I see HR not just as “hiring people”, but as building fair, safe and productive environments
+          where people can grow. My psychology studies help me understand emotions, motivation and
+          behavior, which I want to translate into better communication with candidates and teams.
+        </div>
+      </article>
 
-            <div class="section-subtitle" style="margin-top: 10px;">Tools:</div>
-            <div class="pill-row">
-              <span class="skill-pill">LinkedIn (basic)</span>
-              <span class="skill-pill">Google Sheets (basic)</span>
-              <span class="skill-pill">Notion (basic)</span>
-              <span class="skill-pill">Figma (basic)</span>
-            </div>
+      <article class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Skills</h2>
+          <span class="section-tag">Early-career</span>
+        </div>
+        <div class="section-body">
+          <div class="section-subtitle">HR & communication:</div>
+          <div class="pill-row">
+            <span class="skill-pill">Candidate sourcing basics</span>
+            <span class="skill-pill">Boolean search (junior)</span>
+            <span class="skill-pill">CV & profile screening</span>
+            <span class="skill-pill">Writing simple job descriptions</span>
+            <span class="skill-pill">Empathy & active listening</span>
           </div>
-        </article>
 
-        <article class="section-card">
-          <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <span class="section-tag">Practice</span>
+          <div class="section-subtitle" style="margin-top:10px;">Tools:</div>
+          <div class="pill-row">
+            <span class="skill-pill">LinkedIn (basic)</span>
+            <span class="skill-pill">Google Sheets (basic)</span>
+            <span class="skill-pill">Notion (basic)</span>
+            <span class="skill-pill">Figma (basic)</span>
           </div>
-          <div class="section-body">
-            <div class="section-subtitle">Candidate sourcing week (simulation)</div>
-            I practiced the full beginner workflow of sourcing candidates for entry-level roles:
-            breaking down job descriptions, building simple Boolean strings and selecting a shortlist
-            of profiles with clear reasoning.
-            <br />
-            <button class="btn-secondary" onclick="window.location.href='blog.html'">
-              Open my project notes
-            </button>
-          </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="section-card">
-          <div class="section-header">
-            <h2 class="section-title">My HR Learning Logbook</h2>
-            <span class="section-tag">Ongoing</span>
-          </div>
-          <div class="section-body">
-            I’m tracking what I learn each week about HR, psychology and communication – from
-            courses, books and real cases. You can see some of these reflections in my Blog section.
-          </div>
-        </article>
+      <article class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <span class="section-tag">Practice</span>
+        </div>
+        <div class="section-body">
+          <div class="section-subtitle">Candidate sourcing week (simulation)</div>
+          I practiced the full beginner workflow of sourcing candidates for entry-level roles:
+          breaking down job descriptions, building simple Boolean strings and selecting a shortlist
+          of profiles with clear reasoning.
+          <br /><br />
+          You can read more about what I learned in my logbook.
+          <br />
+          <a href="blog.html" class="btn-ghost" style="margin-top:8px;">Open my notes</a>
+        </div>
+      </article>
 
-        <article class="section-card">
-          <div class="section-header">
-            <h2 class="section-title">Contact & CV</h2>
-            <span class="section-tag">Next step</span>
-          </div>
-          <div class="section-body">
-            If my profile looks relevant, I’d be happy to complete a test task, join a short call or
-            start with an internship / trainee position.
-            <br /><br />
-            <a href="Resume.pdf" target="_blank" rel="noopener" class="btn-primary">
-              Download CV (PDF)
-            </a>
-          </div>
-        </article>
+      <article class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">My HR Learning Logbook</h2>
+          <span class="section-tag">Ongoing</span>
+        </div>
+        <div class="section-body">
+          I’m tracking what I learn each week about HR, psychology and communication – from courses,
+          books and real cases. The Blog section shows a few of these reflections and how I connect
+          theory to practice.
+        </div>
+      </article>
 
-      </section>
+      <article class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <span class="section-tag">Next step</span>
+        </div>
+        <div class="section-body">
+          If my profile looks relevant, I’d be happy to complete a test task, join a short call or
+          start with an internship / trainee position.
+          <br /><br />
+          Email: <a href="mailto:dianazelenin@gmail.com">dianazelenin@gmail.com</a>
+        </div>
+      </article>
+
     </main>
   </div>
 </body>
