@@ -212,6 +212,49 @@
             margin-top: 28px;
         }
 
+        /* HR LOGBOOK (INSPIRED BY ARTEM'S BLOG) */
+        .log-entries {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .log-entry {
+            border-radius: 10px;
+            border: 1px solid #ecd6d0;
+            padding: 12px 14px;
+            background-color: #fdf9f7;
+            transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .log-entry:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+            border-color: #d8a7a1;
+        }
+
+        .log-meta {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #9a7770;
+            margin-bottom: 4px;
+        }
+
+        .log-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #5a4644;
+            margin-bottom: 4px;
+        }
+
+        .log-text {
+            font-size: 13px;
+            color: #6a5a58;
+            line-height: 1.5;
+        }
+
         /* ANIMATIONS */
         @keyframes fadeUp {
             to {
@@ -371,6 +414,46 @@
             <a href="#" class="btn">View HR Projects</a>
         </section>
 
+        <!-- HR LEARNING LOGBOOK (INSPIRED BY ARTEM'S "MY CODING LOGBOOK") -->
+        <section class="section">
+            <h2>My HR Learning Logbook</h2>
+            <p>
+                A simple log of what I’m currently practicing and thinking about in HR. I update it as I learn, reflect,
+                and complete new small projects and tasks.
+            </p>
+
+            <div class="log-entries">
+                <div class="log-entry">
+                    <div class="log-meta">Week 1 · Sourcing Basics</div>
+                    <div class="log-title">Understanding how to read job descriptions</div>
+                    <div class="log-text">
+                        This week I focused on really understanding job descriptions instead of just scanning them.
+                        I tried to separate must-have skills from optional ones, and to see what kind of person the
+                        company is actually looking for beyond formal requirements.
+                    </div>
+                </div>
+
+                <div class="log-entry">
+                    <div class="log-meta">Week 2 · Candidate Experience</div>
+                    <div class="log-title">Rewriting cold rejection messages</div>
+                    <div class="log-text">
+                        I took several typical “cold” rejection templates and rewrote them in a way that feels more human.
+                        I wanted to keep them short but still respectful, clear, and kind. It helped me think more from
+                        the candidate’s perspective.
+                    </div>
+                </div>
+
+                <div class="log-entry">
+                    <div class="log-meta">Week 3 · Communication Practice</div>
+                    <div class="log-title">Short, clear HR messages</div>
+                    <div class="log-text">
+                        I started practicing how to write short HR-style messages: invitations to screening, follow-ups,
+                        and simple check-ins. The goal was to keep them professional, yet friendly and easy to understand.
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CONTACT -->
         <section class="section">
             <h2>Contact</h2>
@@ -390,4 +473,3 @@
 
 </body>
 </html>
-
