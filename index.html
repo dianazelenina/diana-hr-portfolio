@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,32 +12,62 @@
             color: #4a4747;
         }
 
-        /* HEADER */
+        /* HEADER / HERO */
         header {
             background: linear-gradient(135deg, #f2d8d5, #eac1bc, #d8a7a1);
-            padding: 70px 20px;
-            text-align: center;
+            padding: 60px 20px;
             color: white;
         }
-        header h1 {
-            margin: 0;
-            font-size: 42px;
-            font-weight: 700;
+
+        .hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 32px;
         }
-        header p {
-            opacity: 0.95;
-            font-size: 20px;
-            margin-top: 10px;
+
+        .hero-photo-wrapper {
+            flex: 0 0 180px;
+            display: flex;
+            justify-content: center;
         }
 
         .photo {
-            width: 150px;
-            height: 150px;
+            width: 170px;
+            height: 170px;
             border-radius: 50%;
-            margin-top: 25px;
             object-fit: cover;
             border: 4px solid #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            margin: 0;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            margin-top: 10px;
+            font-size: 18px;
+            opacity: 0.96;
+        }
+
+        .hero-sub {
+            margin-top: 14px;
+            font-size: 14px;
+            opacity: 0.9;
         }
 
         /* GENERAL CONTAINER */
@@ -56,7 +85,29 @@
             margin-bottom: 28px;
             border-left: 6px solid #d8a7a1; /* rose gold accent */
             box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            animation: fadeUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .section h2 {
             margin-top: 0;
             font-size: 26px;
@@ -71,6 +122,7 @@
             gap: 10px;
             margin-top: 15px;
         }
+
         .tag {
             padding: 8px 14px;
             background-color: #f2e2df;
@@ -90,8 +142,9 @@
             border-radius: 10px;
             text-decoration: none;
             margin-top: 12px;
-            transition: 0.2s;
+            transition: 0.2s ease;
         }
+
         .btn:hover {
             background-color: #c98f88;
         }
@@ -103,15 +156,41 @@
             font-size: 14px;
             margin-top: 40px;
         }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-photo-wrapper {
+                margin-bottom: 10px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <img src="https://via.placeholder.com/150" alt="Your Photo" class="photo" />
-    <h1>Diana Zelenina</h1>
-    <p>HR Trainee • Psychology Student • Future Talent Specialist</p>
+    <div class="hero">
+        <div class="hero-photo-wrapper">
+            <!-- Твоє справжнє фото з репозиторію -->
+            <img src="фото для сайту.jpg" alt="Diana photo" class="photo" />
+        </div>
+        <div class="hero-text">
+            <h1>Diana Zelenina</h1>
+            <p>HR Trainee • Psychology Student • Future Talent Specialist</p>
+            <div class="hero-sub">
+                Actively growing my HR skillset through sourcing practice, HR projects, and continuous learning.
+            </div>
+        </div>
+    </div>
 </header>
 
 <div class="container">
@@ -120,23 +199,27 @@
     <div class="section">
         <h2>About Me</h2>
         <p>
-            I am an aspiring HR specialist with a psychology background. I focus on developing strong communication,
-            sourcing, and candidate experience skills. I enjoy understanding how people think, how teams work, and how
-            to create a positive hiring experience. My goal is to grow professionally and develop solid HR foundations
-            through practice and continuous learning.
+            I am an aspiring HR specialist with a background in Psychology. I am especially interested in how people think,
+            how they make decisions, and how this translates into work, communication, and teamwork. I focus on developing
+            strong fundamentals in sourcing, candidate screening, and candidate experience.
+            My goal is to grow step by step and build real practical experience in HR, not only theory.
         </p>
     </div>
 
     <!-- SKILLS -->
     <div class="section">
         <h2>Skills</h2>
+        <p>
+            These are the skills I am currently developing and using in my projects and self-study:
+        </p>
         <div class="tags">
             <div class="tag">Sourcing Basics</div>
             <div class="tag">Boolean Search</div>
             <div class="tag">Candidate Screening</div>
-            <div class="tag">Communication</div>
+            <div class="tag">Candidate Experience</div>
             <div class="tag">Psychology for HR</div>
             <div class="tag">Empathy</div>
+            <div class="tag">Communication</div>
             <div class="tag">Team Dynamics</div>
             <div class="tag">HR Writing</div>
         </div>
@@ -145,23 +228,27 @@
     <!-- COURSES -->
     <div class="section">
         <h2>Courses</h2>
-        <p>AI For Everyone — DeepLearning.AI</p>
-        <p>The Growth Mindset — UC Davis</p>
-        <p>Cognitive Psychology — University of Cambridge</p>
+        <p>AI For Everyone — DeepLearning.AI (Andrew Ng)</p>
+        <p>The Growth Mindset — University of California, Davis</p>
+        <p>Cognitive Psychology & Neuropsychology — University of Cambridge (online)</p>
     </div>
 
     <!-- PROJECTS -->
     <div class="section">
         <h2>Projects</h2>
-        <p><strong>Candidate Sourcing Simulation:</strong>  
-        A 1-week practical project where I learned to read job descriptions, write Boolean searches,
-        evaluate profiles, and build my first shortlist.</p>
+        <p>
+            <strong>Candidate Sourcing (1-week project):</strong>
+            Practiced reading job descriptions, creating basic Boolean search strings, manually reviewing profiles
+            on LinkedIn, and building a small shortlist with reasoning for each candidate.
+        </p>
+        <p>
+            <strong>Candidate Experience & Communication Case Study:</strong>
+            Analyzed typical communication mistakes in recruitment, created more human and clear HR message templates,
+            and explored how to make the candidate journey more transparent and respectful.
+        </p>
 
-        <p><strong>Candidate Experience Case Study:</strong>  
-        An analytical project focused on improving HR communication, creating templates, and understanding
-        candidate needs and expectations.</p>
-
-        <a href="#" class="btn">View Projects</a>
+        <!-- Сюди потім можна вставити лінк на Notion -->
+        <a href="#" class="btn">View HR Projects</a>
     </div>
 
     <!-- CONTACT -->
@@ -170,7 +257,9 @@
         <p><strong>Email:</strong> dianazelenina@gmail.com</p>
         <p><strong>Location:</strong> Kyiv, Ukraine</p>
         <p><strong>LinkedIn:</strong> add later</p>
-        <a href="#" class="btn">Download CV</a>
+
+        <!-- Кнопка з твоїм PDF CV -->
+        <a href="Resume.pdf" class="btn" target="_blank">Download CV</a>
     </div>
 
 </div>
@@ -181,3 +270,4 @@
 
 </body>
 </html>
+
