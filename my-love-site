@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our little universe 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Красивий шрифт -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      background: radial-gradient(circle at top, #fdd6ff 0%, #1a1c2b 45%, #050510 100%);
+      color: #fdfdfd;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Напівпрозорий фон */
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(10, 10, 25, 0.75);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      width: 100%;
+      max-width: 900px;
+      padding: 24px 20px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Маленькі "зірочки" */
+    .bg-orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(32px);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .bg-orb.orb1 {
+      width: 220px;
+      height: 220px;
+      background: #ff7eb3;
+      top: -60px;
+      right: -50px;
+    }
+
+    .bg-orb.orb2 {
+      width: 260px;
+      height: 260px;
+      background: #7afcff;
+      bottom: -80px;
+      left: -60px;
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .date-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      opacity: 0.75;
+      margin-top: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(14, 14, 30, 0.6);
+    }
+
+    .date-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #ffb8f8;
+    }
+
+    .gallery {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .photo-card {
+      background: radial-gradient(circle at top, rgba(255,255,255,0.08), rgba(6,6,20,0.9));
+      border-radius: 20px;
+      padding: 10px 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      transform: translateY(0);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.16), rgba(4,4,18,0.95));
+    }
+
+    .photo-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: #111322;
+    }
+
+    .photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    .photo-badge {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .photo-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #ff9ffd;
+    }
+
+    .caption {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      opacity: 0.95;
+    }
+
+    .caption span.highlight {
+      font-weight: 500;
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 0.8rem;
+      text-align: center;
+      opacity: 0.78;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer .heart {
+      font-size: 0.95rem;
+    }
+
+    /* Оверлей для старту музики */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, #fdd6ff 0%, #0a0b16 55%, #000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 1000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .overlay-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .overlay-text {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      max-width: 260px;
+    }
+
+    .overlay-button {
+      margin-top: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff9ffd, #8be4ff);
+      color: #111222;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    }
+
+    .overlay-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      filter: brightness(1.05);
+    }
+
+    .overlay-button:active {
+      transform: translateY(0px) scale(0.98);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease;
+    }
+
+    @media (max-width: 640px) {
+      .glass {
+        padding: 18px 14px 22px;
+      }
+
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      header p {
+        font-size: 0.8rem;
+      }
+
+      .caption {
+        font-size: 0.78rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Музика (з твоєї папки audio) -->
+  <audio id="bg-music" src="audio/song.mp3" loop></audio>
+
+  <!-- Оверлей, щоб браузер дозволив відтворення музики після кліку -->
+  <div class="overlay" id="intro-overlay">
+    <div class="overlay-title">For you &amp; me 💫</div>
+    <div class="overlay-text">
+      Натисни, щоб увімкнути нашу музику і відкрити маленький всесвіт з твоїми фото.
+    </div>
+    <button class="overlay-button" id="start-btn">Open our universe</button>
+  </div>
+
+  <main class="glass">
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+
+    <header>
+      <h1>Our little universe</h1>
+      <p>Кожне фото — маленька історія про тебе.</p>
+      <div class="date-tag">
+        <span class="date-dot"></span>
+        <span>Made with love by me</span>
+      </div>
+    </header>
+
+    <section class="gallery">
+      <!-- Картка 1 -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <img src="images/photo1.jpg" alt="Моє улюблене фото тебе">
+          <div class="photo-badge">
+            <span class="photo-badge-dot"></span>
+            <span>my favourite angle</span>
+          </div>
+        </div>
+        <p class="caption">
+          Тут ти такий <span class="highlight">спокійний і справжній</span>. Я можу дивитися на це фото вічно.
+        </p>
+      </article>
+
+      <!-- Картка 2 -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <img src="images/photo2.jpg" alt="Ти, коли смієшся">
+          <div class="photo-badge">
+            <span class="photo-badge-dot"></span>
+            <span>your smile</span>
+          </div>
+        </div>
+        <p class="caption">
+          Коли ти так посміхаєшся, світ стає трішки легшим. <span class="highlight">Мій улюблений сміх.</span>
+        </p>
+      </article>
+
+      <!-- Картка 3 -->
+      <article class="photo-card">
+        <div class="photo-wrapper">
+          <img src="images/photo3.jpg" alt="Момент, який я не забуду">
+          <div class="photo-badge">
+            <span class="photo-badge-dot"></span>
+            <span>little memory</span>
+          </div>
+        </div>
+        <p class="caption">
+          Цей момент я ношу з собою як <span class="highlight">амулет</span>. Маленьке нагадування, що ти є.
+        </p>
+      </article>
+
+      <!-- Якщо хочеш ще фото – просто копіюй блок <article> і міняй фото + текст -->
+    </section>
+
+    <footer>
+      <span class="heart">Made for you with 🤍</span>
+    </footer>
+  </main>
+
+  <script>
+    const startBtn = document.getElementById('start-btn');
+    const overlay = document.getElementById('intro-overlay');
+    const audio = document.getElementById('bg-music');
+
+    startBtn.addEventListener('click', async () => {
+      overlay.classList.add('hidden');
+      try {
+        await audio.play();
+      } catch (err) {
+        console.log('Браузер не дозволив автозапуск музики:', err);
+      }
+    });
+  </script>
+</body>
+</html>
